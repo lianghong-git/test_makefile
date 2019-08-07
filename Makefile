@@ -1,9 +1,10 @@
-objects=main.o
+objects = $(wildcard *.o)
 	
-test:$(objects)
+test: $(objects)
 	cc -c $(objects)
-main.o:main.c
+main.o: main.c
 	cc -c main.c
-.PHONY:clean
+.PHONY: clean
 clean:
-	-rm test $(objects)
+	-rm -f test $(objects)
+vpath %.h ./headers
